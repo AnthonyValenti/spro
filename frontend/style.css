@@ -1,0 +1,392 @@
+
+/* entire page as a whole*/
+.main {
+    background-color: #040404; /* Replace "yourColor" with the desired color code or name */
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+  }
+
+  /* css for our logo*/
+#sbapro{
+    margin-right:15px;
+    width:18%;
+    
+}
+
+/* css for our entire nav bar*/
+#menu-bar{
+    background-color: black;
+    margin-bottom: 50px;
+    padding: 20px;
+    border-bottom: 1px solid #636768; /* Add a white border at the bottom */
+}
+
+  /*grey background square when you hover over buttons*/
+.hover-background {
+    background-color: #27292A; /* Grey background color */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+    border-radius: 8px;
+}
+
+
+  /*home button*/
+#home{
+    color:white;
+    font-weight:bold;
+    font-size:18px;
+}
+
+/*pricing button*/
+#pricing{
+    color:white;
+    font-weight:bold;
+    font-size:18px;
+}
+
+/*arbitrage button*/
+#arbitrage{
+    color:white;
+    font-weight:bold;
+    font-size:18px;
+}
+
+
+#no-bets-message{
+    color:white;
+    font-weight:bold;
+    margin-left:3%;
+}
+
+
+/* entire table */
+#dynamic-table-all
+{
+    width:95%;
+    margin:auto;
+    table-layout: auto; 
+    border-collapse: separate;
+    border-radius:20px;
+    border: 3px solid #636768;
+    margin-bottom:2vh;
+    border-spacing:0 2.5px;
+    
+
+}
+
+
+
+/* table header (first row) */
+thead
+{
+    background-color: black;
+    color:white;
+    border: 2px solid #636768;
+    border-radius:30px;
+    border-collapse: separate;
+ 
+
+    
+}
+
+/*entries of table*/
+#content-entries
+{
+    border: 7px solid #636768;
+    color:white;
+    font-weight:450;
+    background-color:#111010!important;
+}
+
+/* calcultor button within table  */
+.calculator
+{
+    width:1.3em;
+    border:none;
+    background:none;
+
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* the popup as a whole  */
+#calc-clicked
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #101111;
+    width: 55%;
+   
+    height: 28em;
+    z-index: 999;
+    margin-top:2%;
+    border: 2px solid #636768;
+    border-radius: 10px;
+    
+    
+}
+
+/* the x button within our popup  */
+.btn-close {
+    
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5em; /* Adjust the font size if needed */
+    cursor: pointer;
+    position: absolute; /* Use absolute positioning */
+    top: 10px; /* Adjust the top value as needed */
+    right: 10px; /* Adjust the right value as needed */
+  }
+
+
+
+  /* includes the title and market within our popup */
+  .popup-title{
+    color:white;
+    font-size:1.8vw;
+    font-weight:bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left:5px;
+  }
+
+  /* part of the title of our popup, wanted this to have a diff font though */
+  #popup-market
+  {
+    font-weight:normal;
+    font-size:1.6vw;
+    margin-bottom:2px;
+    
+  }
+
+  /* the main cotent of our popup  */
+  .game-info{
+    color:white;
+    background-color: black;
+    width:96%;
+    margin-top:10%;
+    margin-left:2%;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    height:75%;
+    background-color: rgba(0, 0, 0, 0.368);
+    border:2px solid #636768;
+    border-radius: 10px;
+    position: relative;
+    
+   
+  }
+
+  /* team1 title,odd and book within our popup  */
+  #popup-team1 {
+    position: absolute;
+    left: 20%;
+    margin-top:1%
+  }
+  
+  /* team2 title,odd and book within our popup  */
+  #popup-team2 {
+    position: absolute;
+    left: 58%;
+    margin-top:1%
+  }
+
+
+  /* below the team names odds and books, where how much to bet is calculated  */
+  .popup-calc{
+    color:white;
+    font-weight:bold;
+    margin-top:0.1%;
+    margin-left:0.1%;
+    width:99.8%;
+    position: relative;
+    
+    text-align:left;
+    height:50%;
+    vertical-align: middle;
+    justify-content: left;
+    background-color: black;
+    
+  }
+ 
+
+  .stake1
+  {
+    margin-top:-80px;
+    margin-left:5%;
+    background-color: black;
+    border:2px solid #636768;
+    border-radius:10px;
+    color:white;
+    text-align: center;
+    width:30%;
+    height:15%;
+    position: fixed;
+    background-image:url('./images/dollar.png');
+    background-repeat:no-repeat;
+    background-position: 10% center; /* Adjust the horizontal offset */
+    background-size:1.9vw 3.3vh;
+  }
+
+
+
+
+  .stake2
+  {
+    margin-top:-80px;
+    margin-left:44%;
+    background-color: black;
+    border:2px solid #636768;
+    border-radius:10px;
+    color:white;
+    text-align: center;
+    width:30%;
+    height:15%;
+    position: fixed;
+
+    background-image:url('./images/dollar.png');
+    background-repeat:no-repeat;
+    background-position: 10% center; /* Adjust the horizontal offset */
+    background-size:1.9vw 3.3vh;
+  }
+
+  .payout1
+  {
+    
+    margin-left:5%;
+    background-color: black;
+    border:2px solid #636768;
+    border-radius:10px;
+    -webkit-text-fill-color: #808080;
+    opacity: 1;
+    text-align: center;
+    width:30%;
+    height:15%;
+    position: fixed;
+    
+    background-image:url('./images/dollar.png');
+    background-repeat:no-repeat;
+    background-position: 10% center; /* Adjust the horizontal offset */
+    background-size:1.9vw 3.3vh;
+  
+  }
+
+
+  .payout2
+  {
+    margin-left:44%;
+    background-color: black;
+    border:2px solid #636768;
+    border-radius:10px;
+    -webkit-text-fill-color: #808080;
+    opacity: 1;
+    text-align: center;
+    width:30%;
+    height:15%;
+    position: fixed;
+    background-image:url('./images/dollar.png');
+    background-repeat:no-repeat;
+    background-position: 10% center; /* Adjust the horizontal offset */
+    background-size:1.9vw 3.3vh;
+
+  }
+
+  .headings{
+    width:15%;
+    background-color: black;
+    height:50%;
+  }
+
+  .titles{
+    margin-top:0.1%;
+    margin-left:0.1%;
+    width:99.8%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: black;
+    height:15%;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none;
+  }
+
+  /* will be our display for maybe how much the user should bet and where, just a more clear display, also shows total wager amount across both books, total return and %*/
+  .total-return{
+    
+    margin-bottom:0.1%;
+    margin-left:0.1%;
+    width:95%;
+    position: fixed;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: black;
+    height:25.6%;
+    text-align: left;
+    justify-content: left;
+   
+    display:flex;
+   
+
+   
+    
+  }
+
+  .total-stake{
+    font-weight:400;
+    margin-left: 20%;
+    margin-top:2%;
+    background-color: black;
+    width:20%;
+    height:80%;
+    
+   
+  }
+
+  .total-payout{
+    margin-left:4%;
+    font-weight:400;
+    font-size:100%;
+    margin-top:2%;
+    background-color: black;
+    width:20%;
+    height:80%;
+    
+  }
+
+  .profit{
+    font-weight:400;
+    margin-left: 5%;
+    margin-top:2%;
+    border-left:2px solid #636768;
+    
+    background-color: black;
+    width:39%;
+    height:83%;
+    padding-left:5%;
+    
+  }
+
+  #num-format{
+    font-weight:bold;
+    font-size:100%;
+    
+  }
