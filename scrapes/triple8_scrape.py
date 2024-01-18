@@ -1,7 +1,3 @@
-#//div[@class='bet-card']
-#//div[@class="bb-content-section__title-container"]
-#//div[@class="bb-content-section__content"]
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options
@@ -11,6 +7,8 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from csv_test import team_fixer
 from betrivers_scrape import name_fixer
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 #converts decimal odd to american
 def convert(odd):
@@ -50,8 +48,7 @@ def triple8(sport_site, sport, chrome_options):
 
 
 
-    service = ChromeService(path)
-    driver = webdriver.Chrome(service=service, options=chrome_options)
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)    #opens the window
 
     #opens the window
     driver.get(website)

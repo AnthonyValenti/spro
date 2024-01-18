@@ -7,6 +7,8 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from selenium.common.exceptions import NoSuchElementException
 from csv_test import team_fixer
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 #converts decimal odd to american
 def convert(odd):
@@ -46,9 +48,7 @@ def betmgm(sport_site, sport, chrome_options):
     # )
 
 
-    service = ChromeService(path)
-    driver = webdriver.Chrome(service=service, options=chrome_options)
-
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)    #opens the window
     #opens the window
     driver.get(website)
 

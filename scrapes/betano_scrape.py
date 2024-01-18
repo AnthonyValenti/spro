@@ -1,13 +1,11 @@
-#//div[contains(@class,"tw-flex tw-flex-col tw-items-start tw-justify-center tw-w-full dark:tw-bg-n-22-licorice tw-bg-white-snow tw-mb-n dark:hover:tw-bg-n-28-cloud-burst hover:tw-bg-n-97-porcelain")]
-
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
-import re
 from datetime import datetime, timedelta
 from csv_test import team_fixer
 from betrivers_scrape import name_fixer
@@ -30,38 +28,18 @@ def betano(sport_site, sport, chrome_options):
 
     #start = time.time()
     website = sport_site
-    path = '/Users/stefanoammaturo/Downloads/chromedriver-mac-x64/chromedriver'
     xpath = "//div[contains(@class,'tw-flex tw-flex-col tw-items-start tw-justify-center tw-w-full dark:tw-bg-n-22-licorice tw-bg-white-snow tw-mb-n dark:hover:tw-bg-n-28-cloud-burst hover:tw-bg-n-97-porcelain')]" 
     xpath2 = '//div[contains(@class, "tw-w-full tw-bg-n-94-dirty-snow tw-bg-white-snow")]'
     xpath_button = "//button[contains(@class,'sb-modal__close__btn')]" #note in case of future need: i got this by running this file without headless mode, for some reason just going to the site it wasnt popping up for me
 
-    # Create a ChromeOptions object
-    # chrome_options = Options()
 
-    # # Set any options you need, for example, headless mode
-    # chrome_options.add_argument('--headless')
-    # chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
-    # chrome_options.add_argument('--window-size=1920,1080')  
-    # chrome_options.add_argument('--disable-notifications')
-    # chrome_options.add_argument('--disable-infobars')
-    # chrome_options.add_argument('--disable-extensions')
-    # chrome_options.add_argument('--disable-gpu')
-    # chrome_options.add_argument('--blink-settings=imagesEnabled=false')
-    # chrome_options.add_argument('--disable-geolocation')
-    # chrome_options.add_argument("--no-sandbox")
-    # chrome_options.add_argument("--disable-dev-shm-usage")
-
-
-    service = ChromeService(path)
-    driver = webdriver.Chrome(service=service, options=chrome_options)
-
-    #opens the window
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)    #opens the window
     driver.get(website)
 
     #in case the pop up comes:
     try:
         WebDriverWait(driver,50).until(EC.presence_of_element_located((By.XPATH, xpath_button)))
-        button = driver.find_element(By.XPATH, xpath_button)
+        button = driver.find_element(By.XPATH, xpath_button)        
         button.click()
     except:
         pass
@@ -76,18 +54,6 @@ def betano(sport_site, sport, chrome_options):
     start=0
     for game in test:
         list_elem = game.text.strip().split('\n')
-        #print(list_elem, len(list_elem))
-        #first_month=list_elem[0].split(' ')[0]
-        #print(first_month)
-        
-        # for data in list_elem[1:]:
-        #     if day_month in data or tomorrow_month in data:
-        #         index = list_elem.index(data)
-        #         dates.append(list_elem[start:index])
-        #         start=index
-        #     elif list_elem.index(data) == len(list_elem)-1: #flawed
-        #         dates.append(list_elem[start:len(list_elem)])
-    
         for i, entry in enumerate(list_elem):
             if day_month in entry or tomorrow_month in entry:
                 if i != start:
@@ -204,50 +170,5 @@ def betano(sport_site, sport, chrome_options):
     driver.quit()
     return lines_list
 
-# path = '/Users/stefanoammaturo/Downloads/chromedriver-mac-x64/chromedriver'
-
-# # Create a ChromeOptions object
-# chrome_options = Options()
 
 
-# chrome_options.add_argument('--headless')
-# chrome_options.add_argument("--no-sandbox")
-# chrome_options.add_argument("--disable-dev-shm-usage")
-# chrome_options.add_argument('--window-size=1920,1080')  
-# chrome_options.add_argument('--disable-notifications')
-# chrome_options.add_argument('--disable-infobars')
-# chrome_options.add_argument('--disable-extensions')
-# chrome_options.add_argument('--disable-gpu')
-# chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
-
-# chrome_options.add_experimental_option(
-#     "prefs", {
-#         # block image loading
-#         "profile.managed_default_content_settings.images": 2,
-#     }
-# )
-
-
-# # Create a ChromeService object with the executable path
-# service = ChromeService(path)
-
-# # Pass the ChromeService object and ChromeOptions object to the webdriver.Chrome constructor
-# driver = webdriver.Chrome(service=service, options=chrome_options)
-
-
-# x = betano('https://www.betano.ca/sport/hockey/north-america/nhl/10118/', 'NHL', driver)
-# for entry in x:
-#     print(entry)
-# x = betano('https://www.betano.ca/sport/basketball/north-america/nba/441g/', 'NBA')
-# for entry in x:
-#     print(entry)
-
-# x = betano('https://www.betano.ca/sport/football/north-america/nfl/1611/', 'NFL')
-# for entry in x:
-#     print(entry)
-
-# x = betano('https://www.betano.ca/sport/basketball/north-america/ncaa/443g/', 'NCAA')
-# for entry in x:
-#     print(entry)
-
-#nhl, nba, nfl done

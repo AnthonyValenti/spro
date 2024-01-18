@@ -6,6 +6,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import StaleElementReferenceException
 import time
 from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
+
 import concurrent.futures
 import csv
 import os
@@ -94,8 +96,7 @@ def betrivers(sport_site, sport, chrome_options):
     # )
 
     # # Create a ChromeService object with the executable path
-    service = ChromeService(path)
-    driver = webdriver.Chrome(service=service, options=chrome_options)
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)    #opens the window
  
     #opens the window
     driver.get(website)

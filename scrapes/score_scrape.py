@@ -12,6 +12,7 @@ from fastapi import FastAPI
 import threading
 from threading import Thread
 from datetime import datetime, timedelta
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 app = FastAPI()
@@ -54,8 +55,7 @@ def score(sport_site, sport, chrome_options):
     # chrome_options.add_argument('--blink-settings=imagesEnabled=false')
 
 
-    service = ChromeService(path)
-    driver = webdriver.Chrome(service=service, options=chrome_options)
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)    #opens the window
 
     #opens the window
     driver.get(website)

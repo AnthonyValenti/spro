@@ -1,12 +1,11 @@
 #PLEASE NOTE: if you find theres an error with this function/file, its possible that the api has been updated and its no longer the same version that you coded this file on. Will need to fix your calls
-
-
-
 import requests
 import json
 from datetime import datetime, date, time, timezone, timedelta
 import pytz
 from csv_test import team_fixer
+from webdriver_manager.chrome import ChromeDriverManager
+
 
 
 
