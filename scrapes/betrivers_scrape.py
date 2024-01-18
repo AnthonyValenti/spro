@@ -96,7 +96,7 @@ def betrivers(sport_site, sport, chrome_options):
     # )
 
     # # Create a ChromeService object with the executable path
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)    #opens the window
+    driver = webdriver.Chrome(options=chrome_options)    #opens the window
  
     #opens the window
     driver.get(website)

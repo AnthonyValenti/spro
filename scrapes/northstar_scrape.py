@@ -57,7 +57,7 @@ def northstar(sport_site, sport, chrome_options):
 
 
 
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)    #opens the window
+    driver = webdriver.Chrome(options=chrome_options)    #opens the window
 
     #opens the window
     driver.get(website)

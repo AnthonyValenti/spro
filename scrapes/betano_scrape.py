@@ -33,7 +33,7 @@ def betano(sport_site, sport, chrome_options):
     xpath_button = "//button[contains(@class,'sb-modal__close__btn')]" #note in case of future need: i got this by running this file without headless mode, for some reason just going to the site it wasnt popping up for me
 
 
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)    #opens the window
+    driver = webdriver.Chrome(options=chrome_options)    #opens the window
     driver.get(website)
 
     #in case the pop up comes:

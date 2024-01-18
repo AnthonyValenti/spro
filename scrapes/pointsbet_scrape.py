@@ -45,7 +45,7 @@ def pointsbet(sport_site, sport, chrome_options):
     # chrome_options.add_argument('--blink-settings=imagesEnabled=false')
 
 
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)    #opens the window
+    driver = webdriver.Chrome(options=chrome_options)    #opens the window
 
     #opens the window
     driver.get(website)
